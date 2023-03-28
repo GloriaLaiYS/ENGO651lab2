@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+     <!-- My CSS -->
+    <link rel="stylesheet" href="static/styles.css">
+    <title>{{ content[0].title }}</title>
+
+</head>
+<body>
+    <div id="toc">You have logged in as: {{ username }}<br/>
+        <a href="{{ url_for('logout') }}" role="button"> Log out here </a>
+    </div>  
+    <div id="sta">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+    
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            
+        {% endif %}
+        {% endwith %}
+    </div>
+    <h3> {{ content[0].title }}</h3>
+    <div id="book" class="d-flex justify-content-center">
+        <table >
+            <tr>
+                <th>BOOK NAME</th>
+                <td>{{ content[0].title }}</td>
+            </tr>
+            <tr>
+                <th>AUTHOR</th><td>{{content[0].author}}</td>
+            </tr>
+            <tr>
+                <th>ISBN Number</th><td> {{content[0].isbn}}</td>  
+            </tr>
+            <tr>
+                <th>YEAR</th><td>{{content[0].year}}</td>  
+            </tr>
+        </table>    
+    </div>
+    <h4> Google Book Review Information: </h4>
+    <div id="book" class="d-flex justify-content-center">
+        <table >
+            <tr>
+                <th>Rating Count</th>
+                <td text-align=center>{{ rating_count }}</td>
+            </tr>
+            <tr>
+                <th>Average Rating</th><td text-align=center>{{average_rating}}</td>
+            </tr>  
+            <tr>
+                <th>Book Description</th><td>{{description}}</td>
+            </tr>      
+        </table>    
+    </div>
+<div id="al">
+    <h4> You can search more: </h4>
+    <h2>
+        <form action="/search" method="post">
+            <input type="text" name="content" placeholder="Search other books" Required>
+            <input type="submit" value="Search"><br><br>
+        </form>
+      </h2>
+</div>
+
+<div id="middle">
+    <form method="post" action>
+        <div>
+            <span>Rating: </span>
+            <span>
+                <input type="radio" name="rating" value="1">
+                <label for="1">1</label>
+                <input type="radio" name="rating" value="2">
+                <label for="2">2</label>
+                <input type="radio" name="rating" value="3">
+                <label for="3">3</label>
+                <input type="radio" name="rating" value="4">
+                <label for="4">4</label>
+                <input type="radio" name="rating" value="5">
+                <label for="5">5</label>
+            </span>
+        </div><br>
+        <label for="comment">Your Comment:</label><br>
+        <textarea rows="4" cols="40" type="text" id="comment" name="comment"></textarea><br>
+    <input type="submit" value="Submit"><br><br>
+  
+    </form>
+</div>
+
+    <div id="reviews"> 
+        <h3>Users' Reviews</h3>
+        <div class="vstack gap-3">
+        {% if reviews == [] %}
+            <h6>No review yet.</h6>
+        {% endif%}
+           {% for review in reviews %}
+       
+           <div class="bg-light border">
+            <p><h6>{{review.username}} said:</h6>{{review.comment}}</p>
+               <small>Rated: {{review.rating}}</small>
+           </div>
+           <br>
+           {% endfor %}
+        </div>
+       <br><br><br>
+       </div>
+       
+</body>
+</html>

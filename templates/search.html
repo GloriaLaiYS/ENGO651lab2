@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+     <!-- My CSS -->
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Search Books</title>
+</head>
+<body>
+<div id="toc">You have logged in as: {{ username }}<br/>
+    <a href="{{ url_for('logout') }}" role="button"> Log out here </a>
+</div>
+<div id="al">
+    <h3> Please search books by Title, Author or ISBN </h3>
+    <h2>
+        <form action="/search" method="post">
+            <input type="text" name="content" placeholder="Search books here" Required>
+            <input type="submit" value="Search"><br><br>
+        </form>
+    </h2>
+</div>
+
+<div id="book">
+    {% if results is not none %}
+            <div>
+                <h3>Results</h3>
+            </div>
+            <ol>
+                {% for result in results %}
+                    <li>
+                        <p><a href="/{{result.isbn}}">{{ result.title }}</a><br>
+                        Written by {{ result.author }}  in the year of {{ result.year }}<br>
+                            <a href="/{{result.isbn}}"> ISBN:{{ result.isbn }}</a></p>
+        
+                    </li>
+                {% else %}
+            </ol>    
+                    <ul><li>No results found. Try another search...</li></ul>
+                {% endfor %}
+            
+    {% endif %}
+</div>
+
+</body>
+</html>

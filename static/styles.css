@@ -1,0 +1,112 @@
+body {
+    background-color: whitesmoke;
+}
+h{
+    margin-top:5px;
+	margin-bottom:5px;
+}
+h1,h2 {
+    
+    color:darkcyan;
+    text-align: center;
+    font-size: 28px;
+}
+
+h3,h4 {
+    font-family: "Copperplate";
+    color:#3b67a1;
+    text-align: center;
+    margin-top:40px;
+}
+h3{
+    font-size: 45px;
+}
+h4{
+    font-size: 28px;
+    text-align: center;
+    
+}
+h6{
+    font-size: 28px;
+    text-align: left;
+    color:#3c5d89;
+}
+table {
+    font-size: 20px;
+    border: none;
+    border-collapse: collapse;
+    width: 50%;
+}
+th{
+    text-align:left;
+   }
+td,tr{
+    text-align:left;
+   }
+   
+td:hover {background-color:beige;}
+td::selection{
+    color:#6e3ba1;
+    background-color: rgb(246, 246, 244);
+}
+
+.img{
+    margin-right: auto;
+    margin-left: auto;
+    width:70%;
+    display: block;
+}
+#middle{
+    font-size: 28px;
+    margin-top:5px;
+	margin-bottom:5px;
+    margin-left:100px;
+    margin-right:70px;
+}
+#toc{
+    font-family: "Papyrus";
+    color:#3b67a1;
+    text-align: left;
+    font-size: 28px;
+    margin-left:70px;
+    margin-top:70px;
+}
+
+#book{
+    font-family: "Optima";
+    color:#191970;
+    
+    font-size: 20px;
+    margin-left:50px;
+}
+#sta{
+    font-family: "Courier";
+    color:#483D8B;
+    text-align: left;
+    font-size: 20px;
+    margin-left:70px;
+    margin-top:70px;
+}
+#reviews{
+    font-size: 28px;
+    margin-top:5px;
+	margin-bottom:5px;
+    margin-left:70px;
+    margin-right:70px;
+}
+#al{
+    font-family: "Monaco";
+    color:grey;
+    text-align: center;
+    font-size: 20px;
+    margin-top:70px;
+}
+p{
+    font-size: 28px;
+    text-align: left;
+    color:#0d213c;
+}
+p::selection{
+    color:#6e3ba1;
+    background-color: beige;
+}
